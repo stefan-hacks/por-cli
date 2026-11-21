@@ -3,7 +3,7 @@
 
 let
   cfg = config.programs.por-cli;
-  pkg = self.packages.${pkgs.system}.default;
+  pkg = self.packages.${pkgs.stdenv.hostPlatform.system}.default;
 in
 {
   options.programs.por-cli = {
