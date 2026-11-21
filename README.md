@@ -112,7 +112,7 @@ Add the flake input to your `flake.nix`:
 
 ```nix
 inputs.por-cli = {
-  url = "github:por-cli/por-cli";
+  url = "github:stefan-hacks/por-cli";
   inputs.nixpkgs.follows = "nixpkgs";
 };
 ```
@@ -135,7 +135,7 @@ Install directly from the flake without enabling flakes:
 # configuration.nix
 { pkgs, ... }: {
   environment.systemPackages = [
-    (builtins.getFlake "github:por-cli/por-cli").packages.${pkgs.system}.default
+    (builtins.getFlake "github:stefan-hacks/por-cli").packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
 ```
@@ -143,7 +143,7 @@ Install directly from the flake without enabling flakes:
 Or run directly without installing:
 
 ```bash
-nix run github:por-cli/por-cli --
+nix run github:stefan-hacks/por-cli --
 ```
 
 > This opens the interactive terminal by default.
